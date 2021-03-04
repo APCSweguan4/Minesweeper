@@ -122,12 +122,13 @@ public class MSButton
   // called by manager
   public void mousePressed() 
   {
-    if(mouseButton == LEFT) {
-      clicked = true;
-    }
+    clicked = true;
     if (mouseButton == RIGHT) {
       flagged = !flagged;
-    } else if (mines.contains(this)) {
+      if(flagged == false) {
+        clicked = false;  
+      }
+    } else if (mines.contains(buttons[myRow][myCol])) {
       displayLosingMessage();
     } else if (countMines(myRow, myCol) > 0) {
       this.setLabel(countMines(myRow, myCol));
@@ -146,7 +147,7 @@ public class MSButton
     if (flagged)
       fill(15);
     else if ( clicked && mines.contains(this) ) 
-      fill(255, 0, 0, 200);
+      fill(255, 0, 0);
     else if (clicked)
       fill(136);
     else 
