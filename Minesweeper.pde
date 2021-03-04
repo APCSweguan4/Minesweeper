@@ -29,9 +29,6 @@ public void keyPressed() {
     }
     setMines();
   }
-  if(key == 'w') {
-    displayWinningMessage();
-  }
 }
 
 public void setMines()
