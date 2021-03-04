@@ -29,6 +29,9 @@ public void keyPressed() {
     }
     setMines();
   }
+  if(key == 'w') {
+    displayWinningMessage();
+  }
 }
 
 public void setMines()
@@ -73,7 +76,6 @@ public void displayWinningMessage()
   for (int r = 0; r < NUM_ROWS; r++) {
     for (int c = 0; c < NUM_COLS; c++) {
       if (!mines.contains(buttons[r][c])) {
-        buttons[r][c].setClicked(true);
         buttons[r][c].setLabel("W");
       }
     }
