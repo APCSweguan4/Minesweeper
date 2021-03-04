@@ -114,14 +114,17 @@ public class MSButton
     x = myCol*width;
     y = myRow*height;
     myLabel = "";
-    flagged = clicked = false;
+    flagged = false;
+    clicked = false;
     Interactive.add( this ); // register it with the manager
   }
 
   // called by manager
   public void mousePressed() 
   {
-    clicked = true;
+    if(mouseButton == LEFT) {
+      clicked = true;
+    }
     if (mouseButton == RIGHT) {
       flagged = !flagged;
     } else if (mines.contains(this)) {
